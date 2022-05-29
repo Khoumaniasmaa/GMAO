@@ -30,7 +30,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center"th:href="@{/acc}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center"th:href="@{/accueil}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class='fas fa-car'></i>
             </div>
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item" sec:authorize="hasRole('Manager')">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
@@ -72,36 +72,35 @@
         </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item" sec:authorize="hasRole('Manager')">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span> Gestion des techniciens</span>
+                <span>Gestion les techniciens</span>
             </a>
-            <div  class="collapse" aria-labelledby="headingUtilities"
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <h6 class="collapse-header"> Gestion les techniciens</h6>
+                    <a class="collapse-item" href="utilities-color.html">Lister les techniciens </a>
+                    <a class="collapse-item" href="utilities-color.html">Ajouter les techniciens </a>
                 </div>
             </div>
         </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item" sec:authorize="! hasRole('Manager')">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-table"></i>
-                <span> les Interventions</span>
+                <span > les Interventions</span>
             </a>
             <div id="collapseUtilities"  class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Les interventions</h6>
-                   <a sec:authorize="hasRole('Manager')" class="collapse-item"  th:href="@{/formIntervention}">Ajouter intervention</a>
+                   <a sec:authorize="hasRole('Responsable')"   class="collapse-item"  th:href="@{/formIntervention}">Ajouter intervention</a>
                     <a class="collapse-item"  th:href="@{/index}">Lister Les interventions</a>
                 </div>
             </div>

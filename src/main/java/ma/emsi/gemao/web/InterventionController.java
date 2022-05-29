@@ -37,7 +37,7 @@ public class InterventionController {
    }
    @GetMapping("/")
     public String home(){
-       return "redirect:/index";
+       return "redirect:/accueil";
    }
    @GetMapping("/Intervention")
    @ResponseBody

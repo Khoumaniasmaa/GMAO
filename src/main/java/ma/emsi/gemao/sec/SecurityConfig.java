@@ -19,13 +19,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         System.out.println(encodePWD);
         auth.inMemoryAuthentication().withUser("Technicien").password(encodePWD).roles("Technicien");
         auth.inMemoryAuthentication().withUser("manager").password(encodePWD).roles("Manager");
+        auth.inMemoryAuthentication().withUser("Responsable").password(encodePWD).roles("Responsable");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
              http.authorizeRequests().antMatchers("/").permitAll();
             http.formLogin();
-            http.authorizeRequests().antMatchers("/formIntervention/**").hasRole("Manager");
+            http.authorizeRequests().antMatchers("/formIntervention/**").hasRole("Responsable");
+        http.authorizeHttpRequests().antMatchers("/webjars/**").permitAll();
             http.authorizeRequests().anyRequest().authenticated();
             http.exceptionHandling().accessDeniedPage("/403");
 

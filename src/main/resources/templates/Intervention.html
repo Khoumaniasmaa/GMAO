@@ -39,10 +39,10 @@
 
 <!--              <td th:text="${I.etat}"></td>-->
               <td><a th:href="@{det(id=${I.id},keyword=${keyword},page=${currentPage})}">Details</a></td>
-              <td sec:authorize="hasRole('Manager')" >
+              <td sec:authorize="hasRole('Responsable')" >
                   <a onclick=" return confirm('etez vous sure?')"  class="btn btn-outline-danger"th:href="@{delete(id=${I.id},keyword=${keyword},page=${currentPage})}"><i class='fas fa-trash'></i></a></td>
 
-              <td > <a  class="btn btn-outline-success" th:href="@{editIntervention(id=${I.id},keyword=${keyword},page=${currentPage})}"><i class='fas fa-edit'></i></button></a></td>
+              <td > <a  class="btn btn-outline-success"  th:href="@{editIntervention(id=${I.id},keyword=${keyword},page=${currentPage})}"><i class='fas fa-edit'></i></button></a></td>
 
           </tr>
           </tbody>
