@@ -38,21 +38,7 @@
         <input class="form-control"  type="Date" name="date_Programmation" th:value="${intervention.date_Programmation}">
         <span class="text-danger" th:errors ="${intervention.date_Programmation}"></span>
     </div>
-            <div>
-                <label>Objet </label>
-                <select class="form-select"  name="objet">
-                    <option value="Lavage">Lavage</option>
-                    <option value="Vidange">Vidange</option>
-                    <option value="Bruit Etrange Machine">Bruit Etrange Machine</option>
-                    <option value="Fuite Hydrolique">Fuite Hydrolique</option>
-                    <option value="Changes Les Maillons">Changes Les Maillons</option>
-                    <option value="Filtre Encrasse">Filtre Encrasse</option>
-                    <option value="Panne Tunnel">Panne Tunnel</option>
-                    <option value="Probleme Four">Probleme Four </option>
-                    <option value="Fuite Pneumatique">Fuite Pneumatique</option>
-                    <option value="Panne Fuite">Panne Fuite</option>
-                </select>
-            </div>
+
             <div >
                 <label >Urgence </label>
                 <select  class="form-select"    name="urgence">
